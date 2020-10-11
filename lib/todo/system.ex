@@ -1,6 +1,8 @@
 # Top-level supervisor
 # [{pid,_value}]=Registry.lookup(Todo.ProcessRegistry, {Todo.Server, 'tanaka'})
 #
+# iex -S mix
+#
 # --- defmodule Todo.Server do
 # ---   use GenServer, restart: :temporary
 # Todo.System.start_link()
