@@ -4,7 +4,18 @@ defmodule Todo.Server do
 
   def start_link(name) do
     IO.puts("Starting to-do server for #{name}")
-    GenServer.start_link(__MODULE__, name, name: via_tuple(name))
+    GenServer.start_link(__MODULE__, name, name: global_name(name))
+  end
+
+  defp global_name(name) do
+    {:global, {__MODULE__, name}}
+  end
+
+  def whereis(name) do
+    case :global.whereis_name({__MODULE__, name}) do
+      :undefined -> nil
+      pid -> pid
+    end
   end
 
   def add_entry(pid, new_entry) do
