@@ -5,7 +5,8 @@
 #
 # --- defmodule Todo.Server do
 # ---   use GenServer, restart: :temporary
-# Todo.System.start_link()
+# Todo.System.start_link() <== called by Todo.Application.start/2
+#
 # tanaka_pid=Todo.Cache.server_process('tanaka') -- pidでTodo.Serverにアクセス
 # Todo.Server.add_entry(tanaka_pid, %{date: ~D[2018-12-19], title: "Dentist"})
 # Todo.Server.add_entry(tanaka_pid, %{date: ~D[2018-12-19], title: "kooking"})
